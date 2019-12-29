@@ -38,7 +38,7 @@ for u in urls:
         req_to_each_item = re.get(each_item_url, headers=headers)
         req_to_each_item_bs4 = BeautifulSoup(req_to_each_item.text, 'html.parser')
         item_dic['page%d'%page_counter]['item%d'%item_counter] = {}
-        item_dic['page%d'%page_counter]['item%d'%item_counter]['description'] = req_to_each_item_bs4.select("div > section > p:nth-of-type(1)")[0].text[:-25].strip()
+        item_dic['page%d'%page_counter]['item%d'%item_counter]['description'] = req_to_each_item_bs4.select("div > section > p:nth-of-type(2)")[0].text[:-25].strip()
         item_dic['page%d'%page_counter]['item%d'%item_counter]['location'] = location[c_counter].text.split()
         item_dic['page%d'%page_counter]['item%d'%item_counter]['phoneNumber'] = phones[c_counter]
         print("#%d"%item_counter)
